@@ -1,117 +1,73 @@
-import { Text, View } from 'react-native';
+import React, {useState} from 'react';
+import { View, Text, TouchableOpacity, TextInput} from 'react-native';
+import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 
 export default function HomeScreen() {
+  //  Switching Tabs
+  const [authMode, setAuthMode] = useState<'login' | 'register'>('login');
+  const switchAuthMode = (mode: 'login' | 'register') => {setAuthMode(mode);};
+
   return (
-    <View className="flex-1 items-center justify-center bg-white">
-      <Text className="text-xl font-bold">NutriGuide App</Text>
+    <View className="flex-1 bg-background px-margin-mobile pt-space-lg">
+      {/* <!-- Top Security / Medical Standard Badge --> */}
+      <View className="flex-row items-center justify-between mb-space-md">
+        <View className="flex-row items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container-low border border-outline-variant/30 text-secondary">
+          <MaterialIcons name="verified-user" size={15} className="text-secondary"/>
+          <Text className="font-label-sm text-label-sm uppercase tracking-wider text-secondary">
+            Terakreditasi Medis & Aman
+          </Text>
+        </View>
+        <View className="flex items-center gap-1 text-outline">
+          <MaterialIcons name="language" size={18} className="text-outline"/>
+          <Text className="font-label-md text-label-md">ID</Text>
+        </View>
+      </View>
+
+      {/* <!-- Brand Header --> */}
+      <View className="items-center text-center mb-space-lg">
+        <View className="items-center items-center justify-center w-14 h-14 rounded-2xl bg-primary-container text-on-primary shadow-sm mb-space-sm shadow-primary-container/20">
+          <MaterialIcons name="eco" size={30} className="text-on-primary" />
+        </View>
+        <Text className="font-headline-lg text-headline-lg tracking-tight text-primary">NutriGuide</Text>
+        <Text className="font-body-md text-body-md text-on-surface-variant mt-1 max-w-[280px] mx-auto leading-relaxed">
+          Pantau nutrisi harian yang aman untuk kondisi tubuhmu
+        </Text>
+      </View>
+
+      {/* <!-- Elevated Auth Module Card (Level 1 Surface) --> */}
+      <View className="bg-surface-container-lowest border border-outline-variant/40 rounded-xl p-space-md shadow-[0_4px_20px_-2px_rgba(15,23,42,0.05)]">
+
+        {/* <!-- Segmented Tab Navigation: Masuk vs Daftar Akun --> */}
+        <View className="flex-row p-1 bg-surface-container-low rounded-lg mb-space-md">
+          <TouchableOpacity onPress={() => switchAuthMode('login')} className="flex-1 py-2 rounded-md bg-surface-container-lowest shadow-sm">
+            <Text className={`text-center font-headline-sm ${authMode === 'login' ? 'text-primary font-bold' : 'text-on-surface-variant'}`}>
+              Masuk
+            </Text>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={() => switchAuthMode('register')} className="flex-1 py-2 rounded-md">
+            <Text className={`text-center font-headline-sm ${authMode === 'register' ? 'text-primary font-bold' : 'text-on-surface-variant'}`}>
+              Daftar Akun
+            </Text>
+          </TouchableOpacity>
+        </View>
+
+
+        {/* <!-- Auth Form --> */}
+        <View className="space-y-space-md">
+          {/* <!-- Registration Only Field: Nama Lengkap --> */}
+          {authMode === 'register' && (
+            <View className="space-y-1 mt-3">
+              <Text className="font-label-md text-label-md text-on-surface-variant">Nama Lengkap</Text>
+              <View className="relative flex-row items-center">
+                <MaterialIcons name="person" size={20} className="absolute left-3 text-outline z-10"/>
+                <TextInput className="w-full h-12 pl-10 pr-3 bg-surface-container-lowest border border-outline-variant rounded-lg text-body-md text-on-surface" placeholder="Contoh: dr. Amanda Pratama" placeholderTextColor="#6f7a72"/>
+              </View>
+            </View>
+          )}
+        </View>
+
+      </View>
     </View>
   );
 }
 
-
-
-
-
-// export default function App() {
-//   // Menggunakan state untuk menyimpan input email dan password
-//   const [email, setEmail] = useState('');
-//   const [password, setPassword] = useState('');
-
-//   const handleLogin = () => {
-//     // Logika sederhana untuk pengecekan login
-//     if (email === '' || password === '') {
-//       Alert.alert('Error', 'Email dan Password tidak boleh kosong!');
-//     } else {
-//       Alert.alert('Sukses', `Selamat datang, ${email}!`);
-//       // Di sini kamu bisa menambahkan logika integrasi ke backend/API nantinya
-//     }
-//   };
-
-//   return (
-//     <View style={styles.container}>
-//       {/* Header / Judul Aplikasi */}
-//       <Text style={styles.title}>NutriGuide</Text>
-//       <Text style={styles.subtitle}>Asisten Nutrisi Pribadimu</Text>
-
-//       {/* Form Input Container */}
-//       <View style={styles.inputContainer}>
-//         <Text style={styles.inputLabel}>Email:</Text>
-//         <TextInput
-//           style={styles.textInput}
-//           placeholder="Masukkan email"
-//           keyboardType="email-address"
-//           value={email}
-//           onChangeText={(text) => setEmail(text)} // Update state saat teks berubah
-//         />
-
-//         <Text style={styles.inputLabel}>Password:</Text>
-//         <TextInput
-//           style={styles.textInput}
-//           placeholder="Masukkan password"
-//           secureTextEntry // Menyamarkan teks untuk password
-//           value={password}
-//           onChangeText={(text) => setPassword(text)}
-//         />
-//       </View>
-
-//       {/* Tombol Login */}
-//       <TouchableOpacity style={styles.button} onPress={handleLogin}>
-//         <Text style={styles.buttonText}>Masuk</Text>
-//       </TouchableOpacity>
-//     </View>
-//   );
-// }
-
-// // Styling menggunakan StyleSheet bawaan React Native
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     backgroundColor: '#F5F9F6', // Warna latar belakang yang segar (tema kesehatan)
-//     alignItems: 'center',
-//     justifyContent: 'center',
-//     padding: 20,
-//   },
-//   title: {
-//     fontSize: 32,
-//     fontWeight: 'bold',
-//     color: '#2E7D32', // Hijau tua
-//     marginBottom: 5,
-//   },
-//   subtitle: {
-//     fontSize: 16,
-//     color: '#777',
-//     marginBottom: 40,
-//   },
-//   inputContainer: {
-//     width: '100%',
-//     marginBottom: 20,
-//   },
-//   inputLabel: {
-//     fontSize: 14,
-//     color: '#333',
-//     marginBottom: 5,
-//     marginLeft: 5,
-//     fontWeight: '600',
-//   },
-//   textInput: {
-//     backgroundColor: '#FFF',
-//     borderWidth: 1,
-//     borderColor: '#CCC',
-//     borderRadius: 8,
-//     padding: 15,
-//     marginBottom: 15,
-//     fontSize: 16,
-//   },
-//   button: {
-//     backgroundColor: '#4CAF50', // Hijau tombol
-//     padding: 15,
-//     width: '100%',
-//     borderRadius: 8,
-//     alignItems: 'center',
-//   },
-//   buttonText: {
-//     color: '#FFF',
-//     fontSize: 18,
-//     fontWeight: 'bold',
-//   },
-// });
