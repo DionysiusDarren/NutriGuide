@@ -7,6 +7,7 @@ export default function HomeScreen() {
   const [authMode, setAuthMode] = useState<'login' | 'register'>('login');
   const switchAuthMode = (mode: 'login' | 'register') => {setAuthMode(mode);};
   const [showPassword, setShowPassword] = useState<boolean>(false)
+  const [IsRemembered, setIsRemembered] = useState<boolean>(false)
 
   return (
 
@@ -169,6 +170,18 @@ export default function HomeScreen() {
                 </View>
               )}
 
+              {/* <!-- Remember Me Checkbox & Forgot Password Link --> */}
+              {authMode === 'login' && (
+                <View className="flex-row items-center justify-between pt-2"> 
+                  <TouchableOpacity className="flex-row items-center gap-2" onPress={() => setIsRemembered(!IsRemembered)}>
+                    <MaterialIcons name={IsRemembered ? "check-box" : "check-box-outline-blank"} size={20} color={IsRemembered ? "#096444" : "#6f7a72"}/>
+                    <Text className="font-body-sm text-body-sm text-on-surface-variant">Ingat Saya</Text>
+                  </TouchableOpacity>
+                  <TouchableOpacity>
+                    <Text className="font-body-sm text-body-sm text-primary font-medium">Lupa Kata Sandi?</Text>
+                  </TouchableOpacity>
+                </View>
+              )}
 
 
 
