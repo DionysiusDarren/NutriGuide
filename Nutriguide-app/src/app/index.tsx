@@ -6,6 +6,7 @@ export default function HomeScreen() {
   //  Switching Tabs
   const [authMode, setAuthMode] = useState<'login' | 'register'>('login');
   const switchAuthMode = (mode: 'login' | 'register') => {setAuthMode(mode);};
+  const [showPassword, setShowPassword] = useState<boolean>(false)
 
   return (
     <View className="flex-1 bg-background px-margin-mobile pt-space-lg">
@@ -60,10 +61,49 @@ export default function HomeScreen() {
               <Text className="font-label-md text-label-md text-on-surface-variant">Nama Lengkap</Text>
               <View className="relative flex-row items-center">
                 <MaterialIcons name="person" size={20} className="absolute left-3 text-outline z-10"/>
-                <TextInput className="w-full h-12 pl-10 pr-3 bg-surface-container-lowest border border-outline-variant rounded-lg text-body-md text-on-surface" placeholder="Contoh: dr. Amanda Pratama" placeholderTextColor="#6f7a72"/>
+                <TextInput className="w-full h-12 pl-10 pr-3 bg-surface-container-lowest border border-outline-variant rounded-lg text-body-md text-on-surface" 
+                placeholder="Contoh: dr. Amanda Pratama" 
+                placeholderTextColor="#6f7a72"/>
               </View>
             </View>
           )}
+
+          {/* <!-- Email / No. Handphone --> */}
+          <View className="space-y-1">
+            <Text className="font-label-md text-label-md text-on-surface-variant">Email atau No. Handphone</Text>
+            <View className="relative flex items-center">
+              <MaterialIcons name="alternate-email" size={20} className="absolute left-3 text-outline z-10"/>
+              <TextInput className="w-full h-12 pl-10 pr-3 bg-surface-container-lowest border border-outline-variant rounded-lg text-body-md text-on-surface" 
+              placeholder="nama@email.com atau 0812..." 
+              placeholderTextColor="#6f7a72" 
+              keyboardType='email-address'/>
+            </View>
+          </View>
+
+          {/* <!-- Kata Sandi --> */}
+          <View className="space-y-1">
+            <View className="flex-row items-center justify-between">
+              <Text className="font-label-md text-label-md text-on-surface-variant">Kata Sandi</Text>
+              {authMode === 'register' && (
+                <Text className="text-body-sm font-body-sm text-outline">Min. 8 karakter</Text>
+              )}
+            </View>
+            <View className="relative flex-row items-center">
+              <MaterialIcons name="lock" size={20} className="material-symbols-outlined absolute left-3 text-outline z-10"/>
+              <TextInput className="w-full h-12 pl-10 pr-11 bg-surface-container-lowest border border-outline-variant rounded-lg text-body-md text-on-surface" 
+              placeholder="Masukkan kata sandi" 
+              placeholderTextColor="#6f7a72" 
+              secureTextEntry={!showPassword}/>
+              <TouchableOpacity className="absolute right-3 p-1 text-outline hover:text-on-surface focus:outline-none" onPress={() => setShowPassword(!showPassword)}>
+                <MaterialIcons name={showPassword ? "visibility-off" : "visibility"} size={20} className="material-symbols-outlined"/>
+              </TouchableOpacity>
+            </View>
+          </View>
+
+
+
+
+
         </View>
 
       </View>
