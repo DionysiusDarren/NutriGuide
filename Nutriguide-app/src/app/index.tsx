@@ -25,7 +25,7 @@ export default function HomeScreen() {
                 Terakreditasi Medis & Aman
               </Text>
             </View>
-            <View className="flex items-center gap-1 text-outline">
+            <View className="flex-row items-center gap-1 text-outline">
               <MaterialIcons name="language" size={18} className="text-outline"/>
               <Text className="font-label-md text-label-md">ID</Text>
             </View>
@@ -33,8 +33,8 @@ export default function HomeScreen() {
 
           {/* <!-- Brand Header --> */}
           <View className="items-center text-center mb-space-lg">
-            <View className="items-center items-center justify-center w-14 h-14 rounded-2xl bg-primary-container text-on-primary shadow-sm mb-space-sm shadow-primary-container/20">
-              <MaterialIcons name="eco" size={30} className="text-on-primary" />
+            <View className="items-center items-center justify-center w-14 h-14 rounded-2xl bg-[#2e7d5b] text-on-primary shadow-sm mb-space-sm shadow-primary-container/20">
+              <MaterialIcons name="eco" color='#ffffff' size={30} className="text-on-primary" />
             </View>
             <Text className="font-headline-lg text-headline-lg tracking-tight text-primary">NutriGuide</Text>
             <Text className="font-body-md text-body-md text-on-surface-variant mt-1 max-w-[280px] mx-auto leading-relaxed">
@@ -79,7 +79,7 @@ export default function HomeScreen() {
               <View className="space-y-1">
                 <Text className="font-label-md text-label-md text-on-surface-variant">Email atau No. Handphone</Text>
                 <View className="relative flex items-center">
-                  <MaterialIcons name="alternate-email" size={20} className="absolute left-3 text-outline z-10"/>
+                  <MaterialIcons name="alternate-email" size={20} className="material-symbols-outlined absolute left-3 text-outline z-10"/>
                   <TextInput className="w-full h-12 pl-10 pr-3 bg-surface-container-lowest border border-outline-variant rounded-lg text-body-md text-on-surface" 
                   placeholder="nama@email.com atau 0812..." 
                   placeholderTextColor="#6f7a72" 
@@ -173,7 +173,8 @@ export default function HomeScreen() {
               {/* <!-- Remember Me Checkbox & Forgot Password Link --> */}
               {authMode === 'login' && (
                 <View className="flex-row items-center justify-between pt-2"> 
-                  <TouchableOpacity className="flex-row items-center gap-2" onPress={() => setIsRemembered(!IsRemembered)}>
+                  <TouchableOpacity className="flex-row items-center gap-2" 
+                  onPress={() => setIsRemembered(!IsRemembered)}>
                     <MaterialIcons name={IsRemembered ? "check-box" : "check-box-outline-blank"} size={20} color={IsRemembered ? "#096444" : "#6f7a72"}/>
                     <Text className="font-body-sm text-body-sm text-on-surface-variant">Ingat Saya</Text>
                   </TouchableOpacity>
@@ -183,12 +184,43 @@ export default function HomeScreen() {
                 </View>
               )}
 
-
-
-
-
+              {/* <!-- Primary Call to Action Button --> */}
+              <TouchableOpacity className="w-full h-12 bg-[#2e7d5b] rounded-lg shadow-sm flex-row items-center justify-center gap-2 mt-2"
+              onPress={()=>{}}>
+                <Text className="font-headline-sm text-headline-sm text-white font-semibold">
+                  {authMode === 'login' ? 'Masuk ke NutriGuide' : 'Daftar Sekarang & Personalisasi'}
+                  </Text>
+                <MaterialIcons name="arrow-forward" size={20} color='#ffffff'/>
+              </TouchableOpacity>
             </View>
 
+            {/* <!-- Social Authentication Divider --> */}
+            <View className="relative my-6 text-center">
+              <View className="absolute inset-0 flex items-center">
+                <View className="w-full border-t border-outline-variant/30"></View>
+              </View>
+              <View className="relative flex justify-center items-center text-xs">
+                <Text className="bg-surface-container-lowest px-3 font-body-sm text-body-sm text-outline">atau masuk dengan</Text>
+              </View>
+            </View>
+
+            {/* <!-- Quick Social Buttons --> */}
+            <View className="grid grid-cols-2 gap-3">
+
+              {/* <!-- Google Button --> */}
+              <TouchableOpacity className="flex-1 h-11 flex-row items-center justify-center gap-2 bg-surface-container-low border border-outline-variant/30 rounded-lg"
+              onPress={()=>{}}>
+                <MaterialIcons name="g-mobiledata" size={24} color="#DB4437"/>
+                <Text className="font-medium text-body-sm text-on-surface">Google</Text>
+              </TouchableOpacity>
+
+              {/* <!-- Apple Button --> */}
+              <TouchableOpacity className="flex-1 h-11 flex-row items-center justify-center gap-2 bg-surface-container-low border border-outline-variant/30 rounded-lg">
+                <MaterialIcons name="apple" size={20} color="#000000"/>
+                <span className="font-medium text-body-sm text-on-surface">Apple</span>
+              </TouchableOpacity>
+
+            </View>
           </View>
         </View>
       </ScrollView>
