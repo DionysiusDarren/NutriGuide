@@ -24,7 +24,7 @@ export default function index() {
       return;
     }
 
-    router.replace('/homepage');
+    router.replace('/PagesWithNavbar/homepage');
   }
 
   return (

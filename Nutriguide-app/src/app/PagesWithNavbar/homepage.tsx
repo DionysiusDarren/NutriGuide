@@ -176,10 +176,68 @@ return(
 								</View>
 							</View>
 						</View>
-
 					</View>
 
+					{/* <!-- Hydration Tracker Widget (Pola Minum Bertahap untuk Maag) --> */}
+					<View className="bg-surface-container-lowest border border-outline-variant/40 rounded-xl p-4 shadow-sm space-y-3 mb-4">
+						<View className="flex-row items-start justify-between">
+							<View className="flex-row items-center gap-2.5">
+								<View className="w-10 h-10 rounded-xl bg-secondary-fixed/30 flex items-center justify-center text-secondary">
+									<MaterialIcons name="water-drop" size={24} color="#006a61"/>
+								</View>
+								<View>
+									<Text className="font-headline-sm text-sm font-semibold text-on-surface">Hidrasi Ramah Lambung</Text>
+									<Text className="font-body-sm text-xs text-on-surface-variant">Minum sedikit-sedikit di luar waktu makan</Text>
+								</View>
+							</View>
+
+							<View className="flex-row items-center gap-1 px-2.5 py-1 rounded-full bg-secondary-container">
+								<MaterialIcons name="alarm" size={14} color="#006f66"/> 
+								<Text className="font-semibold text-[#006f66]">Dalam 35 mnt</Text>
+							</View>
+						</View>
+
+						<View className="bg-[#f8f9ff] rounded-xl p-3 border border-[#bec9c1]/20 flex-row items-center justify-between">
+							<View>
+								<View className="flex-row items-baseline gap-1">
+									<Text className="font-headline-md text-headline-md font-bold text-secondary">1.600</Text>
+									<Text className="font-body-sm text-body-sm text-outline">/ 2.500 ml</Text>
+								</View>
+								<Text className="font-label-sm text-label-sm text-on-surface-variant font-medium mt-0.5">6 dari 10 gelas terpenuhi</Text>
+							</View>
+
+							{/* <!-- Quick Log Hydration Button --> */}
+							<TouchableOpacity className="flex-row items-center gap-1.5 px-3 py-2 bg-[#096444] rounded-lg text-xs font-semibold shadow-sm"
+							onPress={() => {}}>
+								<MaterialIcons name="add" size={20} color="#ffffff"/>
+								<Text className="font-semibold text-white">+250 ml</Text>
+							</TouchableOpacity>
+						</View>
+
+						{/* <!-- Glass Icons Tracker Visualizer --> */}
+						<View className="flex-row justify-between items-center px-1 pt-1">
+
+							{/* <!-- Active Glasses --> */}
+							<MaterialIcons name="local-drink" size={20} color="#006a61"/>
+							<MaterialIcons name="local-drink" size={20} color="#006a61"/>
+							<MaterialIcons name="local-drink" size={20} color="#006a61"/>
+							<MaterialIcons name="local-drink" size={20} color="#006a61"/>
+							<MaterialIcons name="local-drink" size={20} color="#006a61"/>
+							<MaterialIcons name="local-drink" size={20} color="#006a61"/>
+
+							{/* <!-- Inactive Remaining Glasses --> */}
+							<MaterialIcons name="local-drink" size={20} color="#bec9c1"/>
+							<MaterialIcons name="local-drink" size={20} color="#bec9c1"/>
+							<MaterialIcons name="local-drink" size={20} color="#bec9c1"/>
+							<MaterialIcons name="local-drink" size={20} color="#bec9c1"/>
+						</View>
+					</View>
+
+
         </View>
+
+				
+
       </ScrollView>
     </SafeAreaView>
 
