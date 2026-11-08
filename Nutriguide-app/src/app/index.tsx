@@ -1,13 +1,30 @@
 import React, {useState} from 'react';
-import { View, Text, TouchableOpacity, TextInput, ScrollView, SafeAreaView} from 'react-native';
+import { useRouter } from 'expo-router';
+import { View, Text, TouchableOpacity, TextInput, ScrollView, SafeAreaView, Alert} from 'react-native';
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 
-export default function HomeScreen() {
+export default function index() {
+
+  const router = useRouter();
+
   //  Switching Tabs
   const [authMode, setAuthMode] = useState<'login' | 'register'>('login');
   const switchAuthMode = (mode: 'login' | 'register') => {setAuthMode(mode);};
+
+  const [credential, setCredential] = useState('');
+  const [password, setPassword] = useState('');
+  const [fullName, setFullName] = useState('');
   const [showPassword, setShowPassword] = useState<boolean>(false)
   const [IsRemembered, setIsRemembered] = useState<boolean>(false)
+  
+  const handleAuthSubmit = () => {
+    if (!credential || !password || (authMode === 'register' && !fullName)) {
+      Alert.alert('Peringatan', 'Silakan lengkapi semua bidang yang wajib diisi.');
+      return;
+    }
+
+    router.replace('/homepage');
+  }
 
   return (
 
@@ -70,7 +87,9 @@ export default function HomeScreen() {
                     <MaterialIcons name="person" size={20} className="absolute left-3 text-outline z-10"/>
                     <TextInput className="w-full h-12 pl-10 pr-3 bg-surface-container-lowest border border-outline-variant rounded-lg text-body-md text-on-surface" 
                     placeholder="Contoh: dr. Amanda Pratama" 
-                    placeholderTextColor="#6f7a72"/>
+                    placeholderTextColor="#6f7a72"
+										value={fullName}
+                    onChangeText={setFullName}/>
                   </View>
                 </View>
               )}
@@ -83,7 +102,9 @@ export default function HomeScreen() {
                   <TextInput className="w-full h-12 pl-10 pr-3 bg-surface-container-lowest border border-outline-variant rounded-lg text-body-md text-on-surface" 
                   placeholder="nama@email.com atau 0812..." 
                   placeholderTextColor="#6f7a72" 
-                  keyboardType='email-address'/>
+                  keyboardType='email-address'
+									value={credential}
+                  onChangeText={setCredential}/>
                 </View>
               </View>
 
@@ -100,7 +121,9 @@ export default function HomeScreen() {
                   <TextInput className="w-full h-12 pl-10 pr-11 bg-surface-container-lowest border border-outline-variant rounded-lg text-body-md text-on-surface" 
                   placeholder="Masukkan kata sandi" 
                   placeholderTextColor="#6f7a72" 
-                  secureTextEntry={!showPassword}/>
+                  secureTextEntry={!showPassword}
+									value={password}
+                  onChangeText={setPassword}/>
                   <TouchableOpacity className="absolute right-3 p-1 text-outline hover:text-on-surface focus:outline-none" onPress={() => setShowPassword(!showPassword)}>
                     <MaterialIcons name={showPassword ? "visibility-off" : "visibility"} size={20} className="material-symbols-outlined"/>
                   </TouchableOpacity>
@@ -186,7 +209,7 @@ export default function HomeScreen() {
 
               {/* <!-- Primary Call to Action Button --> */}
               <TouchableOpacity className="w-full h-12 bg-[#2e7d5b] rounded-lg shadow-sm flex-row items-center justify-center gap-2 mt-2"
-              onPress={()=>{}}>
+              onPress={handleAuthSubmit}>
                 <Text className="font-headline-sm text-headline-sm text-white font-semibold">
                   {authMode === 'login' ? 'Masuk ke NutriGuide' : 'Daftar Sekarang & Personalisasi'}
                   </Text>
@@ -205,7 +228,7 @@ export default function HomeScreen() {
             </View>
 
             {/* <!-- Quick Social Buttons --> */}
-            <View className="grid grid-cols-2 gap-3">
+            <View className="flex-row gap-3">
 
               {/* <!-- Google Button --> */}
               <TouchableOpacity className="flex-1 h-11 flex-row items-center justify-center gap-2 bg-surface-container-low border border-outline-variant/30 rounded-lg"
@@ -217,7 +240,7 @@ export default function HomeScreen() {
               {/* <!-- Apple Button --> */}
               <TouchableOpacity className="flex-1 h-11 flex-row items-center justify-center gap-2 bg-surface-container-low border border-outline-variant/30 rounded-lg">
                 <MaterialIcons name="apple" size={20} color="#000000"/>
-                <span className="font-medium text-body-sm text-on-surface">Apple</span>
+                <Text className="font-medium text-body-sm text-on-surface">Apple</Text>
               </TouchableOpacity>
 
             </View>
