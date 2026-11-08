@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import { useRouter } from 'expo-router';
 import { View, Text, TouchableOpacity, TextInput, ScrollView, SafeAreaView, Alert} from 'react-native';
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
+import { FontAwesome } from '@expo/vector-icons'
 
 export default function index() {
 
@@ -233,13 +234,14 @@ export default function index() {
               {/* <!-- Google Button --> */}
               <TouchableOpacity className="flex-1 h-11 flex-row items-center justify-center gap-2 bg-surface-container-low border border-outline-variant/30 rounded-lg"
               onPress={()=>{}}>
-                <MaterialIcons name="g-mobiledata" size={24} color="#DB4437"/>
+                <FontAwesome name="google" size={24} color="#DB4437"/>
                 <Text className="font-medium text-body-sm text-on-surface">Google</Text>
               </TouchableOpacity>
 
               {/* <!-- Apple Button --> */}
-              <TouchableOpacity className="flex-1 h-11 flex-row items-center justify-center gap-2 bg-surface-container-low border border-outline-variant/30 rounded-lg">
-                <MaterialIcons name="apple" size={20} color="#000000"/>
+              <TouchableOpacity className="flex-1 h-11 flex-row items-center justify-center gap-2 bg-surface-container-low border border-outline-variant/30 rounded-lg"
+              onPress={()=>{}}>
+                <FontAwesome name="apple" size={20} color="#000000"/>
                 <Text className="font-medium text-body-sm text-on-surface">Apple</Text>
               </TouchableOpacity>
 
