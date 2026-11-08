@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import { useRouter } from 'expo-router';
-import { View, Text, TouchableOpacity, TextInput, ScrollView, SafeAreaView, Alert} from 'react-native';
+import { View, Text, TouchableOpacity, TextInput, ScrollView, SafeAreaView, Alert, Image} from 'react-native';
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 
 export default function Homepage(){
@@ -8,6 +8,43 @@ export default function Homepage(){
 
 return(
     <SafeAreaView className = "flex-1 bg-background">
+
+		{/* <!-- TopAppBar Component (from JSON Specification) --> */}
+		<View className="flex-row justify-between items-center w-full px-4 py-3 bg-white  border-b border-outline-variant/30 shadow-sm">
+			<View className="flex-row items-center gap-3">
+
+				{/* <!-- Leading Avatar & Status --> */}
+				<View className="relative">
+					<Image className="w-10 h-10 rounded-full border-2 border-primary-container" 
+					source={{uri:"https://lh3.googleusercontent.com/aida-public/AB6AXuCoTbLt0b59T-jf8NHxBrEc0w1YaJwmyJQ2uDZsrVrqw90lJ5dtKegBp1W9_6-ixKgxONBdO-xPdqHKf-ZQlLjEobJPt9xVftnsqI2JqUcDSg6MmjjnPD9_EShPoHV4Vr0A3lEWx9h6LdP-AqHZBgLIVZ67qioJQsflHJPaUVzQJYzeC_XAzl5BwxX2AOMsmTAvg_WPpjHEiP7xmyOLE_NSqmm_AnkTWhXFPwrVf4QMsBaYLbmcDFM"}}/>
+					<Text className="absolute bottom-0 right-0 w-3 h-3 bg-[#096444] rounded-full border-2 border-surface"></Text>
+				</View>
+
+				<View>
+					<View className="flex-row items-center gap-1.5 mt-0.5">
+						<Text className="font-headline-sm text-headline-sm text-[#096444]">NutriGuide</Text>
+						<Text className="text-xs px-1.5 py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm font-semibold">Pro</Text>
+					</View>
+					<View className="flex-row items-center gap-1">
+						<Text className="font-body-sm text-body-sm text-on-surface-variant font-medium">Budi S.</Text>
+						<Text className="w-1 h-1 rounded-full bg-outline-variant"></Text>
+						
+						<View className="flex-row items-center text-[10px] font-label-sm text-primary font-semibold">
+							<MaterialIcons name="verified"  size={12} color="#096444"/> 
+							<Text className="text-[12px] mr-0.5 font-semibold">Terpantau</Text>
+						</View>
+					</View>
+				</View>
+			</View>
+			
+			{/* <!-- Trailing Action Icon --> */}
+			<TouchableOpacity className="relative p-2 rounded-full"
+			onPress={()=>{}}>
+				<MaterialIcons name="notifications" size={24} color="#3f4943"/>
+				<Text className="absolute top-2 right-2 w-2 h-2 bg-[#ba1a1a] rounded-full ring-2 ring-surface"></Text>
+			</TouchableOpacity>
+		</View>
+
       <ScrollView contentContainerStyle={{ flexGrow: 1, paddingBottom: 40 }} showsVerticalScrollIndicator={false}>
         <View className="px-4 pt-4 space-y-4">
 
