@@ -1,6 +1,9 @@
+import React, { ComponentProps } from 'react';
 import { Tabs } from "expo-router";
-import MaterialIcons from '@expo/vector-icons/MaterialIcons';
+import { MaterialIcons } from '@expo/vector-icons';
 import "../../../global.css";
+
+
 
 export default function RootLayout() {
   return(
@@ -20,35 +23,35 @@ export default function RootLayout() {
       options={{
           title: 'Beranda',
           tabBarIcon: ({ color, size }) => (
-            <MaterialIcons name="home" size={size} color={color} />
+            <MaterialIcons name="home" size={size} color={color as any} />
           ),
         }}/>
       <Tabs.Screen name="scan"
       options={{
           title: 'Pindai',
           tabBarIcon: ({ color, size }) => (
-            <MaterialIcons name="qr-code-scanner" size={size} color={color} />
+            <MaterialIcons name="qr-code-scanner" size={size} color={color as any} />
           ),
         }}/>
       <Tabs.Screen name="food"
       options={{
           title: 'Makanan',
           tabBarIcon: ({ color, size }) => (
-            <MaterialIcons name="restaurant" size={size} color={color} />
+            <MaterialIcons name="restaurant" size={size} color={color as any} />
           ),
         }}/>
       <Tabs.Screen name="schedule"
       options={{
           title: 'Jadwal',
           tabBarIcon: ({ color, size }) => (
-            <MaterialIcons name="calendar-today" size={size} color={color} />
+            <MaterialIcons name="calendar-today" size={size} color={color as any} />
           ),
         }}/>
       <Tabs.Screen name="profile"
       options={{
           title: 'Profil',
           tabBarIcon: ({ color, size }) => (
-            <MaterialIcons name="person" size={size} color={color} />
+            <MaterialIcons name="person" size={size} color={color as any} />
           ),
         }}/>
 
