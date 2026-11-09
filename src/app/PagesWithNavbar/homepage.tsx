@@ -3,6 +3,8 @@ import { useRouter } from 'expo-router';
 import { View, Text, TouchableOpacity, TextInput, ScrollView, SafeAreaView, Alert, Image} from 'react-native';
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 
+import { USER_PROFILE } from '../../data/mockData';
+
 export default function Homepage(){
 
 
@@ -16,7 +18,7 @@ return(
 				{/* <!-- Leading Avatar & Status --> */}
 				<View className="relative">
 					<Image className="w-10 h-10 rounded-full border-2 border-primary-container" 
-					source={{uri:"https://lh3.googleusercontent.com/aida-public/AB6AXuCoTbLt0b59T-jf8NHxBrEc0w1YaJwmyJQ2uDZsrVrqw90lJ5dtKegBp1W9_6-ixKgxONBdO-xPdqHKf-ZQlLjEobJPt9xVftnsqI2JqUcDSg6MmjjnPD9_EShPoHV4Vr0A3lEWx9h6LdP-AqHZBgLIVZ67qioJQsflHJPaUVzQJYzeC_XAzl5BwxX2AOMsmTAvg_WPpjHEiP7xmyOLE_NSqmm_AnkTWhXFPwrVf4QMsBaYLbmcDFM"}}/>
+					source={{uri: USER_PROFILE.avatarUrl}}/>
 					<Text className="absolute bottom-0 right-0 w-3 h-3 bg-[#096444] rounded-full border-2 border-surface"></Text>
 				</View>
 
@@ -26,7 +28,7 @@ return(
 						<Text className="text-xs px-1.5 py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm font-semibold">Pro</Text>
 					</View>
 					<View className="flex-row items-center gap-1">
-						<Text className="font-body-sm text-body-sm text-on-surface-variant font-medium">Budi S.</Text>
+						<Text className="font-body-sm text-body-sm text-on-surface-variant font-medium">{USER_PROFILE.name}</Text>
 						<Text className="w-1 h-1 rounded-full bg-outline-variant"></Text>
 						
 						<View className="flex-row items-center text-[10px] font-label-sm text-primary font-semibold">
@@ -67,7 +69,7 @@ return(
 						<View className="relative z-10 space-y-2">
 							<View className="flex-row items-center justify-between">
 								<Text className="font-label-sm text-label-sm uppercase tracking-wider text-[#a4f3ca] opacity-90">Evaluasi Hari Ini • 14:20 WIB</Text>
-								<MaterialIcons name="stars" size={28} colors="#a4f3ca"/>
+								<MaterialIcons name="stars" size={28} color="#a4f3ca"/>
 							</View>
 
 							<Text className="font-headline-sm text-headline-sm font-semibold leading-tight text-white">

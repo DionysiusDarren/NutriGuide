@@ -3,6 +3,8 @@ import { useRouter } from 'expo-router';
 import { View, Text, TouchableOpacity, TextInput, ScrollView, SafeAreaView, Alert, Image} from 'react-native';
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 
+import { USER_PROFILE } from '../../data/mockData';
+
 export default function profile(){
 
 	const router = useRouter();
@@ -15,7 +17,7 @@ export default function profile(){
                     {/* <!-- 1. Ringkasan Pengguna --> */}
                     <View className="bg-white rounded-xl p-4 border border-[#bec9c1]/40 shadow-sm flex-row items-center gap-3">
                         <Image className="w-14 h-14 rounded-full border-2 border-[#2e7d5b]" 
-                        source={{uri:"https://lh3.googleusercontent.com/aida-public/AB6AXuDffIXMsW0-2H9wYw_k0fb5ZhiizVGV1n2OsHdqliwmhzqLIBURc7WiO9GV0YEW9YFyGAReERgmgFArPbpMv8auqcfg_p1A2J7369aZ_jr3eouI7bqVNCrFPuvJF_lcJ5xin_5L5RAuxJz-CJkeYAS-dK3vCCm1y3KhzVSOezVt6xkm05B1nveQDgzUM4Oltvyhi70Ro8djFFLoNCmyFQcsoPSdmE3lDNz2OwP8-AA-YkFMi9N4aPk"}}/>
+                        source={{uri: USER_PROFILE.avatarUrl}}/>
 
                         <View className="flex-1">
                             <View className="flex-row items-center gap-1.5">
@@ -23,12 +25,14 @@ export default function profile(){
                                 <MaterialIcons name='verified' size={18} color="#096444"/>
                             </View>
 
-                            <Text className="text-xs text-on-surface-variant">34 thn • 68 kg • 172 cm (IMT: 23.0 - Ideal)</Text>
+                            <Text className="text-xs text-on-surface-variant">
+								{USER_PROFILE.age} thn • {USER_PROFILE.weight} kg • {USER_PROFILE.height} cm (IMT: {USER_PROFILE.bmi} - {USER_PROFILE.bmiStatus})
+							</Text>
                         </View>
 
                         <TouchableOpacity className="px-3 py-1.5  rounded-lg border border-outline-variant"
                         onPress={()=>{}}>
-                            <Text className="font-semibold text-on-surface text-xs font-medium">Ubah</Text>
+                            <Text className="font-semibold text-on-surface text-xs">Ubah</Text>
                         </TouchableOpacity>
                     </View>
 
@@ -88,7 +92,7 @@ export default function profile(){
 					{/* <!-- 4. Pengingat Makan Ringkas --> */}
 					<View className="bg-white rounded-xl p-4 border border-[#bec9c1]/40 shadow-sm space-y-2.5">
 						<View className="flex-row items-center gap-1.5">
-							<MaterialIcons className="material-symbols-outlined text-primary text-[18px]"/>
+							<MaterialIcons name="alarm" size={18}/>
 							<Text className="text-sm font-bold text-on-surface">Jadwal Makan Hari Ini</Text>
 						</View>
 						<View className="space-y-1.5 text-xs">

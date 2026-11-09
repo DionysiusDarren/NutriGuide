@@ -3,7 +3,7 @@ import { useRouter } from 'expo-router';
 import { View, Text, TouchableOpacity, TextInput, ScrollView, SafeAreaView, Alert, Image} from 'react-native';
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 
-export default function profile(){
+export default function scan(){
 
     return(
         <SafeAreaView className = "flex-1 bg-background">
