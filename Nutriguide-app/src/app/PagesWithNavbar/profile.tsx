@@ -5,6 +5,8 @@ import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 
 export default function profile(){
 
+	const router = useRouter();
+
     return(
         <SafeAreaView className = "flex-1 bg-background">
             <ScrollView contentContainerStyle={{ flexGrow: 1, paddingBottom: 40 }} showsVerticalScrollIndicator={false}>
@@ -106,8 +108,9 @@ export default function profile(){
 					</View>
 
 					{/* <!-- Keluar / Akun --> */}
-					<View className="pt-3 text-center items-center">
-						<TouchableOpacity className="flex-row items-center gap-1">
+					<View className="pt-3 items-center">
+						<TouchableOpacity className="flex-row items-center gap-1 py-2 px-4"
+						onPress={()=> router.replace('/')}>
 							<MaterialIcons name="logout" size={16} color="#ba1a1a"/>
 							<Text className="text-xs font-semibold text-[#ba1a1a]">Keluar dari Akun</Text>
 						</TouchableOpacity>

@@ -80,7 +80,7 @@ return(
 					</View>
 
 					{/* <!-- Calorie & Macronutrient Tracker Card (Bento Style Matrix) --> */}
-					<View className="bg-surface-container-lowest border border-outline-variant/40 rounded-2xl p-4 space-y-4 mb-4">
+					<View className="bg-white border border-[#bec9c1]/40 rounded-2xl p-4 space-y-4 mb-4">
 						
 						{/* <!-- Header Metrics --> */}
 						<View className="flex-row items-center justify-between border-b border-outline-variant/20 pb-3">
@@ -104,7 +104,7 @@ return(
 						{/* <!-- Master Progress Bar --> */}
 						<View className="space-y-1 py-1">
 							<View className="w-full h-[10px] bg-[#dce9ff] rounded-full overflow-hidden">
-								<View className="h-[10px] bg-[#096444] rounded-full" style={{ width: '67.02%' }}/>
+								<View className="h-[10px] bg-[#096444] rounded-full" style={{width: '67.02%'}}/>
 							</View>
 
 							<View className="flex-row justify-between pt-1">
