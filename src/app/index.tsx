@@ -20,8 +20,20 @@ export default function index() {
   
   const handleAuthSubmit = () => {
     if (!credential || !password || (authMode === 'register' && !fullName)) {
-      Alert.alert('Peringatan', 'Silakan lengkapi semua bidang yang wajib diisi.');
-      return;
+      return Alert.alert('Peringatan', 'Silakan lengkapi semua bidang yang wajib diisi.');
+    }
+
+    const FakeEmail = 'test@gmail.com';
+    const FakePassword = 'password123';
+
+    if (authMode === 'login' && credential === FakeEmail && password !== FakePassword) {
+      return Alert.alert('Error', 'Incorrect password or email. Please try again.');
+    } 
+    else if (authMode === 'login' && credential !== FakeEmail && password === FakePassword) {
+      return Alert.alert('Error', 'Incorrect password or email. Please try again.');
+    }
+    else if (authMode === 'login' && credential !== FakeEmail && password !== FakePassword) {
+      return Alert.alert('Error', 'Incorrect password or email. Please try again.');
     }
 
     router.replace('/PagesWithNavbar/homepage');
@@ -34,7 +46,7 @@ export default function index() {
         contentContainerStyle={{ flexGrow: 1, paddingBottom: 40 }} 
         showsVerticalScrollIndicator={false}>
           
-        <View className="px-margin-mobile pt-space-lg">
+        <View className="px-4 pt-4">
           {/* <!-- Top Security / Medical Standard Badge --> */}
           <View className="flex-row items-center justify-between mb-space-md">
             <View className="flex-row items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container-low border border-outline-variant/30 text-secondary">
@@ -51,7 +63,7 @@ export default function index() {
 
           {/* <!-- Brand Header --> */}
           <View className="items-center text-center mb-space-lg">
-            <View className="items-center items-center justify-center w-14 h-14 rounded-2xl bg-[#2e7d5b] text-on-primary shadow-sm mb-space-sm shadow-primary-container/20">
+            <View className="items-center justify-center w-14 h-14 rounded-2xl bg-[#2e7d5b] text-on-primary shadow-sm mb-space-sm shadow-primary-container/20">
               <MaterialIcons name="eco" color='#ffffff' size={30} className="text-on-primary" />
             </View>
             <Text className="font-headline-lg text-headline-lg tracking-tight text-primary">NutriGuide</Text>
