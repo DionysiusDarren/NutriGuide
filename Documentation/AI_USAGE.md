@@ -58,8 +58,9 @@ Dalam pengembangan proyek **NutriGuide**, AI (Gemini) bertindak sebagai **Senior
 
 Berikut adalah seluruh bukti tangkapan layar sesi pengembangan yang tersimpan di dalam folder `./Screenshots/`:
 
-### A. Tahap 1: Inisialisasi & Konversi Auth Screen
-
+![Screenshot 2026-11-10 122627](./Screenshots/Screenshot%202026-11-10%20122627.png)
+![Screenshot 2026-11-10 122637](./Screenshots/Screenshot%202026-11-10%20122637.png)
+![Screenshot 2026-11-10 122652](./Screenshots/Screenshot%202026-11-10%20122652.png)
 ![Screenshot 2026-11-10 003619](./Screenshots/Screenshot%202026-11-10%20003619.png)
 ![Screenshot 2026-11-10 003728](./Screenshots/Screenshot%202026-11-10%20003728.png)
 ![Screenshot 2026-11-10 003815](./Screenshots/Screenshot%202026-11-10%20003815.png)
@@ -95,11 +96,6 @@ Berikut adalah seluruh bukti tangkapan layar sesi pengembangan yang tersimpan di
 ![Screenshot 2026-11-10 005719](./Screenshots/Screenshot%202026-11-10%20005719.png)
 ![Screenshot 2026-11-10 005731](./Screenshots/Screenshot%202026-11-10%20005731.png)
 ![Screenshot 2026-11-10 005739](./Screenshots/Screenshot%202026-11-10%20005739.png)
-
----
-
-### B. Tahap 2: Komponen Interaktif & State Management
-
 ![Screenshot 2026-11-10 010543](./Screenshots/Screenshot%202026-11-10%20010543.png)
 ![Screenshot 2026-11-10 010651](./Screenshots/Screenshot%202026-11-10%20010651.png)
 ![Screenshot 2026-11-10 010733](./Screenshots/Screenshot%202026-11-10%20010733.png)
@@ -137,11 +133,6 @@ Berikut adalah seluruh bukti tangkapan layar sesi pengembangan yang tersimpan di
 ![Screenshot 2026-11-10 011734](./Screenshots/Screenshot%202026-11-10%20011734.png)
 ![Screenshot 2026-11-10 011743](./Screenshots/Screenshot%202026-11-10%20011743.png)
 ![Screenshot 2026-11-10 011753](./Screenshots/Screenshot%202026-11-10%20011753.png)
-
----
-
-### C. Tahap 3: Konversi Halaman Beranda (Homepage) & Layout Grid
-
 ![Screenshot 2026-11-10 011803](./Screenshots/Screenshot%202026-11-10%20011803.png)
 ![Screenshot 2026-11-10 011821](./Screenshots/Screenshot%202026-11-10%20011821.png)
 ![Screenshot 2026-11-10 011833](./Screenshots/Screenshot%202026-11-10%20011833.png)
@@ -165,14 +156,6 @@ Berikut adalah seluruh bukti tangkapan layar sesi pengembangan yang tersimpan di
 ![Screenshot 2026-11-10 022315](./Screenshots/Screenshot%202026-11-10%20022315.png)
 ![Screenshot 2026-11-10 022336](./Screenshots/Screenshot%202026-11-10%20022336.png)
 ![Screenshot 2026-11-10 022344](./Screenshots/Screenshot%202026-11-10%20022344.png)
-
----
-
-### D. Tahap 4: Navigasi Bottom Bar, Halaman Profil & Static Data
-
-![Screenshot 2026-11-10 122627](./Screenshots/Screenshot%202026-11-10%20122627.png)
-![Screenshot 2026-11-10 122637](./Screenshots/Screenshot%202026-11-10%20122637.png)
-![Screenshot 2026-11-10 122652](./Screenshots/Screenshot%202026-11-10%20122652.png)
 
 ---
 
